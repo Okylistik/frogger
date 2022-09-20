@@ -81,7 +81,6 @@ Player.prototype.handleInput = function (key) {
     if (key === "down" && this.y < 400) {
         this.y += 85
     }
-    console.log(this.x, this.y);
 }
 
 let allEnemies = [new Enemy(60), new Enemy(145), new Enemy(230)]
