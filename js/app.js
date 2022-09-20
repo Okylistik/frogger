@@ -1,23 +1,18 @@
-// Enemies our player must avoid
-// Враги, которых должен избегать наш игрок
+'use strict'
 
-let Enemy = function (pos) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-    // Здесь находятся переменные, применяемые к каждому из наших экземпляров,
-    // мы предоставили его для начала
-    const random = (max) => {
-        return Math.floor(Math.random() * (max) + 1)
-    }
-    // this.speed=speed
-    this.x = -50 - random(10)
+
+const random = (max=100, min=0) => {
+    return Math.floor(Math.random() * max + min)
+}
+
+function positionEnemy(){
+    const pos = [60,145,230]
+    return pos[random(pos.length-1)]
+}
+let Enemy = function (pos=positionEnemy(),xPosition=-100) {
+    this.speed = random(1000,100)
+    this.x = xPosition
     this.y = pos
-    console.log(this.x);
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-    // Изображение/спрайт для наших врагов, здесь используется
-    // помощник, который мы предоставили для простой загрузки изображений
-
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -34,7 +29,15 @@ Enemy.prototype.update = function (dt) {
     // Вы должны умножать любое движение на параметр dt
     // что гарантирует, что игра будет работать с одинаковой скоростью в течение
     // все компьютеры.
+    this.x += this.speed * dt
+    // console.log('THIS IS - '+this.y+ this.x);
+    
 
+    if (this.x >= 500){
+        this.x = -100
+        this.speed = random(1000,100)
+    } 
+    addEnemy()
 };
 
 Enemy.prototype.render = function () {
@@ -64,12 +67,22 @@ Player.prototype.handleInput = function () {
 // Теперь создайте экземпляры ваших объектов.
 // Поместите все вражеские объекты в массив с именем allEnemies
 // Поместите объект игрока в переменную с именем player
-let enemy1 = new Enemy(60)
-let enemy2 = new Enemy(145)
-let enemy3 = new Enemy(230)
-console.log(enemy1);
-let allEnemies = [...enemy1, ...enemy2, ...enemy3]
-console.log(allEnemies);
+// if ()
+let allEnemies = [new Enemy(60), new Enemy(145), new Enemy(230)]
+
+
+const addEnemy = ()=>{
+    const sumSpeed= allEnemies.reduce((sum=0, item)=> sum+item.speed,0)
+    const appearLevel=1000
+    console.log(sumSpeed);
+    if(sumSpeed < appearLevel){
+        allEnemies.push(new Enemy())
+    }
+}
+
+
+
+
 let player = new Player()
 
 console.log(player)
