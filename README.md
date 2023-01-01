@@ -1,6 +1,8 @@
 # Classic Arcade Game Clone Project
-[Demo](https://okylistik.github.io/frogger/)
 
-STACK:
+
+## STACK:
 - js
   - OOP
+
+### [Demo](https://tonyg89.github.io/JS-OOP-frogger/)
