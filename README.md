@@ -15,4 +15,4 @@ The game was developed as part of the **Kottans course** in **September 2022**.
 - **JavaScript**
 - **Object-Oriented Programming (OOP)**
 
-### [Demonstration](https://tonyg89.github.io/JS-OOP-frogger/) | [CODE](https://github.com/TonyG89/JS-OOP-frogger/blob/master/js/app.js)
+### [Demonstration](https://tonyg89.github.io/JS-OOP-frogger/) 
