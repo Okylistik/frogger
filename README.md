@@ -7,7 +7,6 @@ Frogger is a game inspired by the classic arcade hit, where the player must navi
 Key features:
 - **Player and Enemy classes** to encapsulate game logic.
 - **Collision detection methods** for realistic interactions.
-- Smooth movement and control mechanics for an engaging gameplay experience.
 
 The game was developed as part of the **Kottans course** in **September 2022**.
 
